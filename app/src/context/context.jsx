@@ -10,7 +10,7 @@ function AppProvider({ children }) {
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState(false)
   React.useEffect(() => {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=0b6d0f6c2c926539a32079e6addce92f`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=0b6d0f6c2c926539a32079e6addce92f`)
       .then(res => res.json())
       .then(data => {
         setPlace({ lat: (data.length) ? data[0].lat : undefined, lon: (data.length) ? data[0].lon : undefined })
@@ -18,7 +18,7 @@ function AppProvider({ children }) {
 
   }, [location])
   React.useEffect(() => {
-    (place.lat) ? fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${place.lat}&lon=${place.lon}&units=metric&appid=0b6d0f6c2c926539a32079e6addce92f`)
+    (place.lat) ? fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${place.lat}&lon=${place.lon}&units=metric&appid=0b6d0f6c2c926539a32079e6addce92f`)
       .then(res => res.json())
       .then(data => {
         setWeatherData(data)
