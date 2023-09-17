@@ -2,9 +2,10 @@ import React from 'react'
 import { AppContext } from '../context/context'
 import Forecast from './Forecast'
 function Dashboard() {
-  const { weatherData, getDate, getDtList } = React.useContext(AppContext)
+  const { weatherData, getDate, getDtList,isLoading } = React.useContext(AppContext)
 
   return (
+    
     <div className='main-section'>
       <section className='foreCast'>
         {Forecast(6, "Tomorrow")}
